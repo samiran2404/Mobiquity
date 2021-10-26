@@ -1,8 +1,8 @@
 from configparser import ConfigParser
 import boto3
-import os
 import logging
 from config import constants
+import sqlite3
 
 PROJECT_NAME = 'mobiquity'
 
@@ -31,3 +31,7 @@ class Cfg(object, metaclass=Singleton):
         format = '%(lineno)d,  %(message)s'
         logging.basicConfig(format=format)
         self.logger = logging.getLogger("mobiquity")
+
+        self.source = self.Config('source', 'source')
+        self.dynamodb = boto3.client("dynamodb")
+        self.table_name = self.Config('dynamodb', 'table_name')

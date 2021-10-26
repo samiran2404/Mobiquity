@@ -1,0 +1,10 @@
+{
+    "production": {
+        "app_function": "mobiquity.app",
+        "aws_region": "ap-south-1",
+        "profile_name": "default",
+        "project_name": "mobiquity",
+        "runtime": "python3.6",
+        "s3_bucket": "mobiquity-s3-deployment-bucket"
+    }
+}

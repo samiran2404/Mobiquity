@@ -1,1 +1,2 @@
 LOCAL = "local"
+PRODUCTION = "production"
