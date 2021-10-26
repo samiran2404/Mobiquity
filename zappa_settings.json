@@ -1,6 +1,6 @@
 {
     "production": {
-        "app_function": "mobiquity.app",
+        "app_function": "app.app",
         "aws_region": "ap-south-1",
         "profile_name": "default",
         "project_name": "mobiquity",
