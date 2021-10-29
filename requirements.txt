@@ -1,3 +1,4 @@
 boto3
 troposphere==2.7.0
 Flask
+requests

@@ -1,5 +1,6 @@
 {
     "production": {
+        "api_key_required": true,
         "app_function": "app.app",
         "aws_region": "ap-south-1",
         "profile_name": "default",
