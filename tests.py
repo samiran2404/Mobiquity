@@ -10,11 +10,11 @@ for i in range(0, len(output)):
         index = i
         break
 
-real_string = output[6:]
+new_output = json.loads(output[index:])
 
-new_output = json.loads(real_string)
+print(new_output[0])
 
-print(type(new_output[0]))
+
 
 
 

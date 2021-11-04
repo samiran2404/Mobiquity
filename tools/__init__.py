@@ -1,19 +1,19 @@
 import requests
 import json
 
-CONF = Cfg(os.environ.get(constants.STAGE))
 
-response = requests.get(url="https://www.ing.nl/api/locator/atms/")
+class Processor:
+    def __init__(self):
+        self.response = requests.get(url="https://www.ing.nl/api/locator/atms/")
+        self.data = self.parse_list(self.response.text)
 
-output = str(response.text)
+    @staticmethod
+    def parse_list(data):
+        index = 0
+        for i in range(0, len(str(data))):
+            if data[i] == "[":
+                index = i
+                break
 
-for i in range(0, len(output)):
-    if output[i] == "[":
-        index = i
-        break
+        return json.loads(data[index:])
 
-real_string = output[6:]
-
-new_output = json.loads(real_string)[0]
-
-print(new_output)
