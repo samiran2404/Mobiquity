@@ -17,3 +17,8 @@ class Processor:
 
         return json.loads(data[index:])
 
+    def get_atm_list(self, city_name):
+        return [item for item in self.data if item["address"]["city"] == city_name]
+
+
+

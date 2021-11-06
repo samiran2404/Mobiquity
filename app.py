@@ -1,5 +1,7 @@
 from flask import Flask, request, jsonify, make_response
 import datetime
+from tools import Processor
+import boto3
 import uuid
 
 app = Flask(__name__)
@@ -17,7 +19,12 @@ def create_atm():
 
 @app.route("/get_atm/<city_name>", methods=["GET"])
 def get_atm():
-    pass
+    processor = Processor()
+    city_name = request.args.get("city_name")
+    atm_list = processor.get_atm_list(city_name)
+    return {
+        "atm_list": atm_list
+    }
 
 
 if __name__ == "__main__":
