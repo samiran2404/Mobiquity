@@ -4,8 +4,12 @@ from tools import Processor
 import boto3
 import uuid
 import json
+from config import constants, Cfg
+import os
 
 app = Flask(__name__)
+
+CONF = Cfg(os.environ.get(constants.STAGE))
 
 
 @app.route("/")
