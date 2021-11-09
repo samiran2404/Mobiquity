@@ -24,11 +24,15 @@ def create_atm():
 
 @app.route("/get_atm", methods=["GET"])
 def get_atm():
-    processor = Processor()
-    city_name = request.args.get("city_name")
-    print(city_name)
-    atm_list = processor.get_atm_list(city_name)
-    return jsonify({"atm": atm_list})
+    try:
+        processor = Processor()
+        city_name = request.args.get("city_name")
+        print(city_name)
+        atm_list = processor.get_atm_list(city_name)
+        return jsonify({"atm": atm_list})
+    except Exception as e:
+        return jsonify({"atm": None,
+                        "message": str(e)})
 
 
 if __name__ == "__main__":
